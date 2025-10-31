@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+const markdownPages = await getCollection('pages');
+---
+
+<header>
+  <h1>XXXTentacion Fan Website</h1>
+</header>
+
+<main>
+  {await Promise.all(
+    markdownPages.map(async (post) => {
+      const { Content } = await post.render();
+      return (
+        <section>
+          <h2>{post.data.title}</h2>
+          <Content />
+        </section>
+      );
+    })
+  )}
+</main>
