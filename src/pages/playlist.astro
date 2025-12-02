@@ -1,0 +1,113 @@
+---
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+const songs = [
+  { title: "Jocelyn Flores", mood: "Chill", year: "2017", link: "FAucVNRx_mU" },
+  { title: "Moonlight", mood: "Vibe", year: "2018", link: "DoCDdkQcH8s" },
+  { title: "SAD!", mood: "Emotional", year: "2018", link: "pgN-vvVVxMA" },
+  { title: "Changes", mood: "Soft", year: "2018", link: "f0bbDFRYD_A" },
+  { title: "Hope", mood: "Classic", year: "2014", link: "KyAcMpQUY5s" },
+  { title: "Everybody Dies In Their Nightmares", mood: "Dark", year: "2017", link: "7JGDWKJfgxQ" }
+];
+---
+
+<Nav />
+
+
+<main class="playlist-page">
+
+  <!-- FEATURED -->
+  <section class="playlist-hero">
+    <div class="hero-image"></div>
+
+    <div class="hero-info">
+      <p class="hero-label">XXXTentacion - Playlist</p>
+      <h1 class="hero-title">The Creative Act of Listening</h1>
+      <p class="hero-desc">
+        A collection of tracks blending vulnerability, darkness and emotional depth.
+        Shuffle through or add your own favourite song.
+      </p>
+    </div>
+  </section>
+
+  <!-- filer + shuffle -->
+  <section class="playlist-toolbar">
+    <div class="chips">
+      <button class="chip chip-active">All</button>
+      <button class="chip">Chill</button>
+      <button class="chip">Emotional</button>
+      <button class="chip">Classic</button>
+    </div>
+
+    <button id="shuffleBtn" class="btn shuffle-btn">Shuffle Playlist</button>
+  </section>
+
+  <!-- song grd -->
+  <section id="songList" class="playlist-grid">
+    {songs.map((song) => (
+      <article class="song-card">
+        <div class="song-cover">
+          <iframe
+            src={`https://www.youtube.com/embed/${song.link}`}
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="song-meta">
+          <h3>{song.title}</h3>
+          <p class="song-meta-line">
+            <span>{song.mood}</span> · <span>{song.year}</span>
+          </p>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <!-- adding the songs -->
+  <section class="add-song">
+    <h3>Add Your Own Song</h3>
+    <div class="add-row">
+      <input type="text" id="songInput" placeholder="Enter song title" />
+      <button id="addSongBtn" class="btn add-btn">Add</button>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  const songList = document.getElementById("songList");
+  const shuffleBtn = document.getElementById("shuffleBtn");
+  const addSongBtn = document.getElementById("addSongBtn");
+  const songInput = document.getElementById("songInput");
+
+  // Shuffle cards
+  shuffleBtn.addEventListener("click", () => {
+    const cards = Array.from(songList.children);
+    cards.sort(() => Math.random() - 0.5);
+    songList.innerHTML = "";
+    cards.forEach(card => songList.appendChild(card));
+  });
+
+  // Add new card
+  addSongBtn.addEventListener("click", () => {
+    const title = songInput.value.trim();
+    if (!title) return;
+
+    const card = document.createElement("article");
+    card.className = "song-card";
+    card.innerHTML = `
+      <div class="song-cover"></div>
+      <div class="song-meta">
+        <h3>${title}</h3>
+        <p class="song-meta-line"><span>Custom</span> · <span>—</span></p>
+      </div>
+    `;
+    songList.appendChild(card);
+    songInput.value = "";
+  });
+</script>
+<Footer/>

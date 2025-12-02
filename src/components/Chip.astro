@@ -1,0 +1,23 @@
+---
+const { active = false } = Astro.props;
+---
+
+<button class={`chip ${active ? "active" : ""}`}>
+  <slot />
+</button>
+
+<style>
+  .chip {
+    padding: 6px 18px;
+    border-radius: 20px;
+    background: #eee;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .chip.active {
+    background: #000;
+    color: #fff;
+  }
+</style>

@@ -1,22 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
-const markdownPages = await getCollection('pages');
+import "../styles/global.css";
+import Button from "../components/Button.astro";  // ⭐ REQUIRED
 ---
 
-<header>
-  <h1>XXXTentacion Fan Website</h1>
-</header>
+<main class="home-background">
+  <h1 class="artist-name">XXXTentacion</h1>
 
-<main>
-  {await Promise.all(
-    markdownPages.map(async (post) => {
-      const { Content } = await post.render();
-      return (
-        <section>
-          <h2>{post.data.title}</h2>
-          <Content />
-        </section>
-      );
-    })
-  )}
+  <div class="home-buttons">
+    <Button href="/about">About</Button>
+    <Button href="/news">News</Button>
+    <Button href="/playlist">Playlist</Button>
+  </div>
 </main>
