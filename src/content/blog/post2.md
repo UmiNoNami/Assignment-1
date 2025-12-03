@@ -1,5 +1,5 @@
 ---
-title: "His Inspiration"
+title: "His Childhood"
 date: 2024-11-20
 image: "/images/image2.jpg"
 ---

@@ -1,5 +1,5 @@
 ---
-title: "His Inspiration"
+title: "His New Album"
 date: 2024-11-20
 image: "/images/image3.jpg"
 ---
