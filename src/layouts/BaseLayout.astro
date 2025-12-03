@@ -4,6 +4,10 @@ import Footer from "../components/Footer.astro";
 
 const { title = "My Website" } = Astro.props;
 ---
+<!--This code is basically my main page layout. It adds the Nav on top, 
+Footer on the bottom, and puts my page content in the middle using 
+slot. It also sets the page title and connects the global CSS. So every page 
+looks the same and uses the same style. -->
 
 <html lang="en">
   <head>
@@ -20,7 +24,3 @@ const { title = "My Website" } = Astro.props;
   </body>
 </html>
 
-/*This code is basically my main page layout. It adds the Nav on top, 
-Footer on the bottom, and puts my page content in the middle using 
-slot. It also sets the page title and connects the global CSS. So every page 
-looks the same and uses the same style. */
