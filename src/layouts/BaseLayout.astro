@@ -9,16 +9,13 @@ const { title = "My Website" } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
-    <link rel="stylesheet" href="/styles/global.css" />
+
+<link rel="stylesheet" href="/styles/global.css" />
   </head>
 
   <body>
     <Nav />
-
-    <main class="page-content">
-      <slot />
-    </main>
-
+    <slot />
     <Footer />
   </body>
 </html>

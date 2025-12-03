@@ -1,47 +1,56 @@
 ---
 import { getCollection } from "astro:content";
 import Nav from "../components/Nav.astro";
-import "../styles/global.css";
 import Footer from "../components/Footer.astro";
+
 const posts = await getCollection("blog");
 ---
-<Nav />
 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>About XXXTentacion</title>
 
+    <!-- Correct method to load global CSS -->
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
 
-<main class="about-wrapper">
+  <body>
+    <Nav />
 
-  <section class="about-hero">
-    <h1 class="about-title">About XXXTentacion</h1>
-    <p class="about-subtitle">Jahseh Dwayne Ricardo Onfroy</p>
-  </section>
+    <main class="about-wrapper">
 
-  <section class="about-content">
-    
-    <div class="about-image-box">
-      <img src="/images/artist.jpg" alt="XXXTentacion" class="about-image">
-    </div>
+      <section class="about-hero">
+        <h1 class="about-title">About XXXTentacion</h1>
+        <p class="about-subtitle">Jahseh Dwayne Ricardo Onfroy</p>
+      </section>
 
-    <div class="about-text">
-      <p>
-        XXXTentacion was an American rapper, singer, and songwriter known for his raw emotion, vulnerability, and genre-breaking sound.
-        His music blended hip-hop, R&B, lo-fi, emo, and alternative influences, creating a style that connected deeply with millions
-        of listeners around the world.
-      </p>
+      <section class="about-content">
+        <div class="about-image-box">
+          <img src="/images/artist.jpg" alt="XXXTentacion" class="about-image">
+        </div>
 
-      <p>
-        Emerging from SoundCloud with an experimental and unfiltered approach, he quickly became a cultural phenomenon. His songs often
-        explored themes of pain, mental health, personal growth, and emotional struggle, resonating deeply with a generation seeking honesty.
-      </p>
+        <div class="about-text">
+          <p>
+            XXXTentacion was an American rapper, singer, and songwriter known for his raw emotion, vulnerability, and genre-breaking sound.
+            His music blended hip-hop, R&B, lo-fi, emo, and alternative influences, creating a style that connected deeply with millions
+            of listeners around the world.
+          </p>
 
-      <p>
-        Despite a controversial life, his impact on music continues to grow. Projects like <em>17</em> and <em>?</em> remain iconic,
-        and his influence can be seen in the rise of emotional rap and alternative trap music.
-      </p>
+          <p>
+            Emerging from SoundCloud with an experimental and unfiltered approach, he quickly became a cultural phenomenon. His songs often
+            explored themes of pain, mental health, personal growth, and emotional struggle, resonating deeply with a generation seeking honesty.
+          </p>
 
-    </div>
+          <p>
+            Despite a controversial life, his impact on music continues to grow. Projects like <em>17</em> and <em>?</em> remain iconic,
+            and his influence can be seen in the rise of emotional rap and alternative trap music.
+          </p>
+        </div>
+      </section>
 
-  </section>
+    </main>
 
-</main>
-<Footer/>
+    <Footer />
+  </body>
+</html>

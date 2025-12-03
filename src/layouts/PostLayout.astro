@@ -9,18 +9,21 @@ export interface Props {
 const { title, image } = Astro.props;
 ---
 
+
 <BaseLayout title={title}>
-  <main class="post-container">
+  <section class="post-layout">
+    <div class="post-container">
 
-    <h1 class="post-title">{title}</h1>
+      <h1 class="post-title">{title}</h1>
 
-    {image && (
-      <img src={image} alt={title} class="post-image" />
-    )}
+      <article class="post-body">
+        <slot />
+      </article>
 
-    <article class="post-body">
-      <slot />
-    </article>
-    
-  </main>
+      {image && (
+        <img src={image} alt={title} class="post-image" />
+      )}
+
+    </div>
+  </section>
 </BaseLayout>
