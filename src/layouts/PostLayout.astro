@@ -8,7 +8,11 @@ export interface Props {
 
 const { title, image } = Astro.props;
 ---
-
+/*This code is the layout for each blog post. It takes the post title and 
+image, then uses the main BaseLayout around everything. Inside the page, 
+it shows the title on top, the post text in the slot, and the image on the 
+side (only if it exists). Basically, it makes all my blog posts have the same 
+clean structure. */
 
 <BaseLayout title={title}>
   <section class="post-layout">

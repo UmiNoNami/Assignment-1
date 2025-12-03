@@ -7,6 +7,10 @@ import PostCard from "../components/PostCard.astro";
 const posts = await getCollection("blog");
 ---
 
+/*This code gets all my blog posts from the “blog” folder, then loops 
+through them and shows each one as a PostCard. So it basically builds
+ the news/tour page automatically from my markdown posts.*/
+
 <Nav />
 
 <h1 class="news-heading">News / Tour</h1>

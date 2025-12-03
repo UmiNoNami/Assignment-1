@@ -2,6 +2,11 @@
 # Assignment-1
 =======
 # Astro Starter Kit: Basics
+## Live Site
+https://myfavouriteartist.netlify.app/
+
+## GitHub Repository
+https://github.com/UmiNoNami/Assignment-1
 
 ```sh
 npm create astro@latest -- --template basics
